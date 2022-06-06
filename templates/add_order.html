@@ -1,0 +1,30 @@
+{% extends 'general.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Dodaj zamówienie{% endblock %}
+
+{% block content %}
+
+
+</ul>
+<div class="jumbotron">
+    <div class="card text-center">
+
+        <div class="text-left">
+
+            <form method="POST" action="{% url 'add-order' %}" class="form" enctype="multipart/form-data">
+
+                {% load bootstrap4 %}
+                {% bootstrap_css %}
+                {% bootstrap_javascript jquery='full' %}
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form|crispy }}
+
+
+                <button type="submit" class="btn btn-success">Dodaj</button>
+            </form>
+        </div>
+
+        {% endblock %}
